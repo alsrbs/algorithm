@@ -6,7 +6,6 @@ lst = list(map(int, input().split()))
 def fixed_point(s,e,lst):
     if s>e:
         return -1
-
     mid = (s+e)//2
 
     if lst[mid] == mid: # 고정점 발견한 경우 반환
