@@ -1,4 +1,4 @@
-from collections import  deque
+from collections import deque
 dr = [0, 0, 1, -1]
 dc = [1, -1, 0, 0]
 
