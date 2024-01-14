@@ -19,8 +19,8 @@ n = int(input())
 conditions = [input() for _ in range(n)]
 arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 result = 0
-for i in list(permutations(arr, 3)):
-    num = ''.join(i)
+for x in list(permutations(arr, 3)):
+    num = ''.join(x)
     cnt = 0
     for i in conditions:
         if i[4] == strike(i[0:4], num) and i[6] == ball(i[0:4], num):
