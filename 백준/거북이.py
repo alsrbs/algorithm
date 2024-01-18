@@ -23,6 +23,5 @@ for _ in range(t):
                 direction = 3
             else:
                 direction -= 1
-    list_x.sort()
-    list_y.sort()
-    print(abs(list_x[-1]-list_x[0])*abs(list_y[-1]-list_y[0]))
+    # 거북이가 지나간 영역을 출력
+    print(abs(max(list_x)-min(list_x))*abs(max(list_y)-min(list_y)))
