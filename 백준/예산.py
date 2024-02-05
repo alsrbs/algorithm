@@ -10,7 +10,7 @@ start, end = 0, max(cities)  # 시작 점, 끝 점
 # 이분 탐색
 while start <= end:
     mid = (start+end) // 2
-    total = 0  
+    total = 0
 
     for i in cities:
         if i > mid:
