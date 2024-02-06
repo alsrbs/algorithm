@@ -12,7 +12,6 @@ def are_similar_words(word1, word2):
         else:
             cnt += 1
 
-
     if cnt < 2 and len(word1) < 2:
         return True
 
