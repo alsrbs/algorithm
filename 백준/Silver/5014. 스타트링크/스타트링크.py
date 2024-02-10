@@ -15,7 +15,7 @@ def bfs(v):
             return result[G]
 
         for i in (v + U, v - D):
-            if 0 < i <= F and i != S and not result[i]:
+            if 1 <= i <= F and i != S and not result[i]:
                 result[i] = result[v] + 1
                 q.append(i)
 
