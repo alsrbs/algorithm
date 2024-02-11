@@ -11,7 +11,9 @@ def bfs(idx):
         x = q.popleft()
         if vis[x] == 1:continue
         vis[x] = 1
-        q += graph[x]
+        for i in graph[x]:
+            if vis[i] == 0:
+                q += [i]
 
 
 N, M = map(int, input().split())
