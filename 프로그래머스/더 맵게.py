@@ -17,5 +17,5 @@ while True:
     heapq.heappush(scoville, x1+x2*2)
 
     result += 1
-    
+
 print(result)
