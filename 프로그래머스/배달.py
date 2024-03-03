@@ -1,36 +1,43 @@
-from collections import deque
+import heapq
 
-N = 6
-road = [[1,2,1],[1,3,2],[2,3,2],[3,4,3],[3,5,2],[3,5,3],[5,6,1]]
-K = 4
 
-graph = [[0]*(N+1) for _ in range(N+1)]
-graph2 = [[] for _ in range(N+1)]
+def dijkstra(graph, start):
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    queue = []
+    heapq.heappush(queue, [distances[start], start])
 
-for i in range(len(road)):
+    while queue:
+        current_distance, current_destination = heapq.heappop(queue) # 탐색 할 노드, 거리를 가져옴.
 
-    graph2[road[i][0]].append(road[i][1])
+        if distances[current_destination] < current_distance:
+            continue
 
-    if graph[road[i][0]][road[i][1]] == 0:
-        graph[road[i][0]][road[i][1]] = road[i][2]
-        graph[road[i][1]][road[i][0]] = road[i][2]
-    else:
-        graph[road[i][0]][road[i][1]] = min(graph[road[i][0]][road[i][1]], road[i][2])
-        graph[road[i][1]][road[i][0]] = min(graph[road[i][1]][road[i][0]], road[i][2])
+        for new_destination, new_distance in graph[current_destination].items():
+            distance = current_distance + new_distance
+            if distance < distances[new_destination]:
+                distances[new_destination] = distance
+                heapq.heappush(queue, [distance, new_destination])
 
-print(graph2)
+    return distances
 
-result = []
-for i in graph2[1]:
 
-    q = deque([i])
+N = 5
+road = [[1,2,1],[2,3,3],[5,2,2],[1,4,2],[5,3,1],[5,4,2]]
+K = 3
 
-    j = 1
-    while q:
-        x = q.popleft()
-        graph[j][x]
-        result.append(x)
-        q += graph2[x]
-        j = x
+graph = {i: {} for i in range(1, N+1)}
 
-print(result)
+for a, b, c in road:
+
+    graph.setdefault(a, {})[b] = min(graph.setdefault(a, {}).get(b, float('inf')), c)
+    graph.setdefault(b, {})[a] = min(graph.setdefault(b, {}).get(a, float('inf')), c)
+
+
+graph1 = dijkstra(graph, 1)
+answer = 0
+for v in graph1.values():
+    if v <= K:
+        answer += 1
+
+print(answer)
