@@ -2,7 +2,9 @@ import sys, heapq
 
 input = sys.stdin.readline
 
+
 INF = int(1e9)
+
 
 def dijkstra(start):
     q = []
@@ -13,7 +15,6 @@ def dijkstra(start):
 
         if dist > distance[now]:
             continue
-
         for i in graph[now]:
             cost = dist + i[1]
             if cost < distance[i[0]]:
@@ -35,4 +36,5 @@ for _ in range(n):
     graph[s].append((e, l))
 
 dijkstra(0)
+
 print(distance[d])

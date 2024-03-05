@@ -9,7 +9,6 @@ def dijkstra(graph, start):
 
     while queue:
         current_distance, current_destination = heapq.heappop(queue) # 탐색 할 노드, 거리를 가져옴.
-
         if distances[current_destination] < current_distance:
             continue
 
