@@ -1,11 +1,17 @@
 def solution(myStr):
     answer = []
-    for i in myStr.split('a'):
-        for j in i.split('b'):
-            for k in j.split('c'):
-                if k:
-                    answer.append(k)
-                    
-    if answer == []:
-        return ["EMPTY"]
-    return answer
+    st = ''
+    for i in myStr:
+        if i in ['a', 'b', 'c']:
+            if st:
+                answer.append(st)
+            st = ''
+        else:
+            st += i
+            
+    if st:
+        answer.append(st)
+        
+    if answer:
+        return answer
+    return ["EMPTY"]
