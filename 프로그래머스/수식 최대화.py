@@ -10,8 +10,7 @@ for i in range(6):
     for j in range(3):
 
         k = 1
-        while True:
-            if k >= len(nums):break
+        while k < len(nums):
             if arr[i][j] not in expression or arr[i][j] != nums[k]:
                 k += 2
                 continue
