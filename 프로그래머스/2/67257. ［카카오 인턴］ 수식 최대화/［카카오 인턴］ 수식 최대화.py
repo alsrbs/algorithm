@@ -2,43 +2,34 @@ import re
 
 def solution(expression):
     expression = re.split(r'([-+*])', expression)
+
     arr = ['*+-', '*-+', '+-*', '+*-', '-+*', '-*+']
-    l = len(expression)
-    result = []
+    result = 0
 
     for i in range(6):
         nums = expression[:]
         for j in range(3):
 
             k = 1
-
             while True:
                 if k >= len(nums):break
-
-                if arr[i][j] not in expression:
+                if arr[i][j] not in expression or arr[i][j] != nums[k]:
                     k += 2
                     continue
 
-                if arr[i][j] == nums[k]:
-                    num1 = int(nums.pop(k - 1))
-                    operator = nums.pop(k - 1)
-                    num2 = int(nums.pop(k - 1))
+                num1 = int(nums.pop(k - 1))
+                operator = nums.pop(k - 1)
+                num2 = int(nums.pop(k - 1))
 
+                if operator == '+':
+                    num = num1 + num2
+                elif operator == '-':
+                    num = num1 - num2
+                elif operator == '*':
+                    num = num1 * num2
 
-                    if operator == '+':
-                        x = num1 + num2
+                nums.insert(k - 1, num)
 
-                    elif operator == '-':
-                        x = num1 - num2
-
-                    elif operator == '*':
-                        x = num1 * num2
-
-                    nums.insert(k - 1, x)
-
-                else:
-                    k += 2
-
-        result.append(abs(nums[0]))
-
-    return max(result)
+        result = max(abs(nums[0]), result)
+        
+    return result
