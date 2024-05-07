@@ -1,13 +1,7 @@
 const fs = require("fs");
 const input = fs.readFileSync("/dev/stdin").toString().split("\n");
 
-let [answer, idx] = [0, 0];
 let nums = input.map(Number)
-for(let i = 0; i <= 8; i++) {
-  if (answer < nums[i]) {
-    answer = nums[i];
-    idx = i;
-  }
-}
-console.log(answer)
-console.log(idx + 1)
+let Max_num = Math.max(...nums)
+console.log(Max_num)
+console.log(nums.indexOf(Max_num) + 1)
