@@ -1,0 +1,4 @@
+for t in range(1, int(input())+1):
+    print(f'#{t}', end=' ')
+    word = ''.join(sorted(input())).replace('aa', '').replace('bb', '').replace('cc', '').replace('dd', '').replace('ee', '').replace('ff', '').replace('gg', '').replace('hh', '').replace('ii', '').replace('jj', '').replace('kk', '').replace('ll', '').replace('mm', '').replace('nn', '').replace('oo', '').replace('pp', '').replace('qq', '').replace('rr', '').replace('ss', '').replace('tt', '').replace('uu', '').replace('vv', '').replace('ww', '').replace('yy', '').replace('xx', '').replace('zz', '')
+    print(word if word else 'Good')
