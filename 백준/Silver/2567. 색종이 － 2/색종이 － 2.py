@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+
 n = int(input())
 arr = [[0]*101 for _ in range(101)]
 
