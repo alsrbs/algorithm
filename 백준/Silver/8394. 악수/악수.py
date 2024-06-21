@@ -1,10 +1,5 @@
 n = int(input())
-dp = [0]*(n+1)
-dp[1], dp[2] = 1, 2
-
-if n < 3:
-    print(dp[n])
-else:
-    for i in range(3, n+1):
-        dp[i] = (dp[i-1]+dp[i-2])%10
-    print(dp[n])
+a, b = 1, 0
+for i in range(n):
+    a, b = (a+b)%10, a%10
+print(a)
