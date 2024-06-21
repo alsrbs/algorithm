@@ -1,3 +1,8 @@
+import sys
+
+input = sys.stdin.readline
+
+# 심장 위치 파악
 def find_heart():
     global h
     for i in range(n):
@@ -10,6 +15,7 @@ def find_heart():
                 return
 
 
+# 왼팔 길이 측정
 def left_arm(r, c):
     global l_a
     while c>=0 and cookie[r][c]=='*':
@@ -17,6 +23,7 @@ def left_arm(r, c):
         l_a+=1
 
 
+# 오른팔 길이 측정
 def rigth_arm(r, c):
     global r_a
     while c<n and cookie[r][c]=='*':
@@ -24,6 +31,7 @@ def rigth_arm(r, c):
         r_a+=1
 
 
+# 왼발 길이 측정
 def left_foot(r, c):
     global l_f
     while r<n and cookie[r][c]=='*':
@@ -31,6 +39,7 @@ def left_foot(r, c):
         l_f+=1
 
 
+# 오른발 길이 측정
 def rigth_foot(r, c):
     global r_f
     while r<n and cookie[r][c]=='*':
@@ -38,6 +47,7 @@ def rigth_foot(r, c):
         r_f += 1
 
 
+# 허리 길이 측정
 def waist(r, c):
     global w
     while cookie[r][c]=='*':
