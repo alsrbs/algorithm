@@ -1,22 +1,22 @@
-N, M = map(int, input().split())
+import sys
+
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
 nums = list(map(int, input().split()))
 
-left, right = 0, 1
-cnt = 0
-while right<=N and left<=right:
+l, r = 0, 1
+ans = 0
+while r<=n and l<=r:
 
-    sum_nums = nums[left:right]
-    total = sum(sum_nums)
+    total = sum(nums[l:r])
 
-    if total == M:
-        cnt += 1
-
-        right += 1
-
-    elif total < M:
-        right += 1
-
+    if total == m:
+        ans += 1
+        r += 1
+    elif total < m:
+        r+=1
     else:
-        left += 1
+        l+=1
 
-print(cnt)
+print(ans)
