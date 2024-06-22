@@ -5,9 +5,7 @@ beverage = sorted(map(int, input().split()), reverse=True)
 
 ans = 0
 B, s, bev = 0, 0, 0
-while True:
-    if B >= a and s >= b and bev >= c:
-        break
+while B < a or s < b or bev < c:
 
     B_m, s_m, bev_m = 0, 0, 0
     if B >= a:
