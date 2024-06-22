@@ -1,34 +1,21 @@
-a, b, c = map(int, input().split())
-Burger = sorted(map(int, input().split()), reverse=True)
-side = sorted(map(int, input().split()), reverse=True)
-beverage = sorted(map(int, input().split()), reverse=True)
+b, c, d = map(int, input().split())
 
-ans = 0
-B, s, bev = 0, 0, 0
-while B < a or s < b or bev < c:
+burger = list(map(int, input().split()))
+side = list(map(int, input().split()))
+drink = list(map(int, input().split()))
 
-    B_m, s_m, bev_m = 0, 0, 0
-    if B >= a:
-        B_m = 0
-    else:
-        B_m = Burger[B]
+burger.sort(reverse=True)
+side.sort(reverse=True)
+drink.sort(reverse=True)
 
-    if s >= b:
-        s_m = 0
-    else:
-        s_m = side[s]
+result = 0
+min_value = min(b, c, d)
+for i in range(min_value) :
+  result += (burger[i] + side[i] + drink[i]) * 0.9
 
-    if bev >= c:
-        bev_m = 0
-    else:
-        bev_m = beverage[bev]
+result += sum(burger[min_value::])
+result += sum(side[min_value::])
+result += sum(drink[min_value::])
 
-    B, s, bev = B+1, s+1, bev+1
-
-    if 0 not in (B_m, s_m, bev_m):
-        ans += B_m+s_m+bev_m - (B_m+s_m+bev_m)*0.1
-    else:
-        ans += B_m+s_m+bev_m
-
-print(sum(Burger) + sum(side) + sum(beverage))
-print(int(ans))
+print(sum(burger) + sum(side) + sum(drink))
+print(int(result))
