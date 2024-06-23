@@ -1,10 +1,12 @@
 a, k = map(int, input().split())
-dp = [0]*(k+1)
 
-for num in range(a, k):
-    if num+1 <= k and dp[num+1] == 0:
-        dp[num+1] = dp[num]+1
-    if num*2 <= k and dp[num*2] == 0:
-        dp[num*2] = dp[num]+1
+ans = 0
+while a!=k:
+    if k%2 == 0 and k//2 >= a:
+        k //= 2
+    else:
+        k -= 1
 
-print(dp[k])
+    ans += 1
+
+print(ans)
