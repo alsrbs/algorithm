@@ -1,21 +1,6 @@
-n=10000
-a = [False,False] + [True]*(n-1)
-primes = []
-
-for i in range(2, n+1):
-    if a[i]:
-        primes.append(i)
-        for j in range(2*i, n+1, i):
-            a[j] = False
-
 N = int(input())
-
-ans = set()
-for i in range(len(primes)-1):
-    num = primes[i]*primes[i+1]
-    if N < num:
-        ans.add(num)
-        if num >= 10000:
-            break
-
-print(sorted(ans)[0])
+nums = [6, 15, 35, 77, 143, 221, 323, 437, 667, 899, 1147, 1517, 1763, 2021, 2491, 3127, 3599, 4087, 4757, 5183, 5767, 6557, 7387, 8633, 9797, 10403]
+for i in nums:
+    if N < i:
+        print(i)
+        break
