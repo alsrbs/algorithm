@@ -16,11 +16,10 @@ for i in range(n):
 
 x1, x2 = min(pro[0], seong_gyu[0]), max(pro[0], seong_gyu[0])
 y1, y2 = min(pro[1], seong_gyu[1]), max(pro[1], seong_gyu[1])
+
 cnt = 0
 for x in range(x1, x2+1):
-    for y in range(y1, y2+1):
-        if arr[x][y] == 1:
-            cnt += 1
+    cnt += arr[x][y1:y2+1].count(1)
 
 if cnt >= 3 and (x1-x2)**2 + (y1-y2)**2 >= 25:
     print(1)
