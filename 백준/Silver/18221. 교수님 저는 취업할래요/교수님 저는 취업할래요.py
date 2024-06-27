@@ -1,34 +1,25 @@
 n = int(input())
-board = []
-gyu = None
-professor = None
+arr = []
+pro = None
+seong_gyu = None
 for i in range(n):
-    temp = list(map(int,input().split()))
-    for j in range(n):
-        if temp[j]==2:
-            gyu = (i,j)
-        elif temp[j]==5:
-            professor = (i,j)
-    board.append(temp)
-    
-def check(x1,y1,x2,y2):
-    cnt = 0
-    x_min,x_max = min(x1,x2),max(x1,x2)
-    y_min,y_max = min(y1,y2),max(y1,y2)
-    for y in range(y_min,y_max+1):
-        for x in range(x_min,x_max+1):
-            if board[y][x]==1:
-                cnt+=1
-    if cnt>=3 and (x1-x2)**2 + (y1-y2)**2 >=25:
-        if x1==x2 or y1==y2:
-            return True
-        else:
-            if (x1-x2)**2 + (y1-y2)**2 >=25:
-                return True
-    else:
-        return False
-        
-y1,x1 = gyu
-y2,x2 = professor
-answer = check(x1,y1,x2,y2)
-print(int(answer))
+    nums = list(map(int, input().split()))
+    arr.append(nums)
+
+    if 5 in nums:
+        pro = (i, nums.index(5))
+    if 2 in nums:
+        seong_gyu = (i, nums.index(2))
+
+x1, x2 = min(pro[0], seong_gyu[0]), max(pro[0], seong_gyu[0])
+y1, y2 = min(pro[1], seong_gyu[1]), max(pro[1], seong_gyu[1])
+cnt = 0
+for x in range(x1, x2+1):
+    for y in range(y1, y2+1):
+        if arr[x][y] == 1:
+            cnt += 1
+
+if cnt >= 3 and (x1-x2)**2 + (y1-y2)**2 >= 25:
+    print(1)
+else:
+    print(0)
