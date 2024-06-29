@@ -1,5 +1,5 @@
 def extent(x):
-    return 3**2/1/4*x**2
+    return 3/2*x**2
 
 for t in range(1, int(input())+1):
     print(f'#{t}', end=' ')
