@@ -11,20 +11,20 @@ for _ in range(n-1):
     graph[b].append(a)
 
 stack = [[1, 0]]
-ans = []
+ans = 0
 while stack:
     a, c = stack.pop()
-    vis[a] = 1
 
     if a != 1 and len(graph[a]) == 1:
-        ans.append(c)
+        ans += c
         continue
 
     for i in graph[a]:
         if vis[i] == 0:
+            vis[a] = 1
             stack.append([i, c + 1])
 
-if sum(ans)%2 == 1:
+if ans%2 == 1:
     print('Yes')
 else:
     print('No')
