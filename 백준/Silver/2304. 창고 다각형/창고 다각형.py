@@ -11,12 +11,8 @@ for _ in range(n):
 storage.sort()
 
 # 가장 높은 기둥의 높이와 위치를 찾는다.
-max_h = 0
-max_idx = 0
-for i in range(n):
-    if storage[i][1] > max_h:
-        max_h = storage[i][1]
-        max_idx = i
+max_h = max(storage, key=lambda x: x[1])[1]
+max_idx = next(i for i, v in enumerate(storage) if v[1] == max_h)
 
 # 가장 높은 기둥의 넓이 추가
 ans = max_h
