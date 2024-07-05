@@ -1,42 +1,44 @@
-import sys
 from collections import deque
-input = sys.stdin.readline
 
 
-def bfs(x, y, dst_x, dst_y, time):
-    q = deque([(x, y, time)])
-    visited = [[0] * m for _ in range(n)]
-    dx = [-1, 1, 0, 0]
-    dy = [0, 0, -1, 1]
+def bfs(x, y):
+    q = deque([(x, y, 0)])  # (x, y, 현재까지 거리)
+    visited = [[False] * m for _ in range(n)]
+    visited[x][y] = True
+
+    gram_distance = float('inf')
+    end_distance = float('inf')
+
     while q:
-        x, y, time = q.popleft()
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if 0 <= nx < n and 0 <= ny < m and graph[nx][ny] != 1 and not visited[nx][ny]:
-                if nx == dst_x and ny == dst_y:
-                    return time+1
-                visited[nx][ny] = 1
-                q.append((nx, ny, time+1))
-    return float('inf')
+        r, c, cnt = q.popleft()
+
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nr, nc = r + dr, c + dc
+
+            if 0 <= nr < n and 0 <= nc < m and not visited[nr][nc] and graph[nr][nc] != 1:
+                visited[nr][nc] = True
+
+                if graph[nr][nc] == 2:
+                    gram_distance = cnt + 1 + (n - 1 - nr) + (m - 1 - nc)
+
+                if nr == n - 1 and nc == m - 1:
+                    end_distance = cnt + 1
+
+                q.append((nr, nc, cnt + 1))
+
+    return gram_distance, end_distance
 
 
 n, m, t = map(int, input().split())
-graph = [[] for _ in range(n)]
-for i in range(n):
-    graph[i] = list(map(int, input().split()))
-    if 2 in graph[i]:
-        knife = [i, graph[i].index(2)]
+graph = [list(map(int, input().split())) for _ in range(n)]
 
-# 칼 사용 X
-not_use_knife = bfs(0, 0, n-1, m-1, 0)
+# BFS를 통해 시작 지점에서 칼의 위치 및 목표 지점까지의 최단 거리를 계산
+gram_distance, end_distance = bfs(0, 0)
 
-# 칼 사용 O
-tmp = bfs(0, 0, knife[0], knife[1], 0)
-if tmp != float('inf'):
-    use_knife = tmp + abs(n-1 - knife[0]) + abs(m-1 - knife[1])
+# 칼을 사용하지 않거나 사용하여 도달한 최단 거리 중 작은 값 선택
+ans = min(gram_distance, end_distance)
+
+if ans <= t:
+    print(ans)
 else:
-    use_knife = tmp
-
-ans = min(not_use_knife, use_knife)
-print(ans if ans <= t else 'Fail')
+    print("Fail")
