@@ -1,4 +1,7 @@
+import sys
 from collections import deque
+input = sys.stdin.readline
+
 
 n, k = map(int, input().split())
 test_tube = []  # 시험관 상태를 저장할 리스트
@@ -9,12 +12,13 @@ for i in range(n):
     arr = list(map(int, input().split()))
     test_tube.append(arr)
     for j in range(n):
-        if arr[j] != 0:  # 바이러스가 있는 경우
+        if arr[j] != 0:
             virus_positions.append((arr[j], i, j))  # (바이러스 번호, 행, 열) 저장
 
 # s: 시간, x: 목표 행, y: 목표 열
 s, x, y = map(int, input().split())
 
+# 바이러스 번호 순으로 정렬
 virus_positions.sort()
 
 # 큐 초기화, (바이러스 번호, 행, 열, 시간)을 저장
