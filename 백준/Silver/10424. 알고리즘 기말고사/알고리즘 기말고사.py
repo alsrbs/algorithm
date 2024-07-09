@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
 ans = [0] * n
 score = list(map(int, input().split()))
