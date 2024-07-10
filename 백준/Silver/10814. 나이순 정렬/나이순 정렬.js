@@ -8,11 +8,10 @@ for (let i = 1; i <= n; i++) {
   arr.push(a);
 }
 
+// 첫 번째 요소를 기준으로 정렬
 arr.sort((a, b) => a[0] - b[0]);
 
-let answer = "";
-for (let i = 0; i < n; i++) {
-  answer += arr[i][0] + ' ' + arr[i][1] + '\n';
-}
+// 배열을 문자열로 변환
+let answer = arr.map(pair => pair.join(' ')).join('\n');
 
 console.log(answer);
