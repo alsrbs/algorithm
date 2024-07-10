@@ -4,12 +4,10 @@ const input = fs.readFileSync("/dev/stdin").toString().split('\n');
 let n = Number(input[0]); // 단어의 개수
 let arr = [];
 for (let i = 1; i <= n; i++) {
-  let word = input[i];
-  // 중복된 단어 제외
-  if (!arr.includes(word)) {
-    arr.push(word);
-  }
+  arr.push(input[i]);
 }
+
+arr = [...new Set(arr)]
 
 // 1. 길이가 짧은 것부터
 // 2. 길이가 같으면 사전 순
@@ -22,10 +20,6 @@ arr.sort((a, b) => {
   }
 })
 
-
-answer = ""
-for (let i = 0; i < arr.length; i++) {
-  answer += arr[i] + '\n';
+for (let word of arr) {
+  console.log(word);
 }
-
-console.log(answer);
