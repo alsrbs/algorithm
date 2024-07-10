@@ -20,6 +20,9 @@ arr.sort((a, b) => {
   }
 })
 
-for (let word of arr) {
-  console.log(word);
+answer = "";
+for (let i = 0; i < arr.length; i++) {
+  answer += arr[i] + '\n';
 }
+
+console.log(answer);
