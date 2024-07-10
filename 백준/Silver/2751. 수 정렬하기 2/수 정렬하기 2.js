@@ -7,6 +7,7 @@ for (let i = 1; i <= n; i++) {
   arr.push(Number(input[i]));
 }
 
+
 // 병합 정렬 수행
 function merge(arr, left, mid, right) {
   let i = left;
@@ -19,20 +20,19 @@ function merge(arr, left, mid, right) {
   }
   
   // 왼쪽 배열에 대한 처리가 다 끝난 경우
-  while (i <= mid) {
-    sorted[k++] = arr[i++];
+  if (i > mid) {
+    for (; j <= right; j++) sorted[k++] = arr[j];
   }
-  
   // 오른쪽 배열에 대한 처리가 다 끝난 경우
-  while (j <= right) {
-    sorted[k++] = arr[j++];
+  else {
+    for (; i <= mid; i++) sorted[k++] = arr[i];
   }
-  
   // 정렬된 배열 결과를 원본 배열에 반영하기
   for (let x = left; x <= right; x++) {
     arr[x] = sorted[x];
   }
 }
+
 
 // 병합 정렬
 function mergeSort(arr, left, right) {
@@ -43,6 +43,7 @@ function mergeSort(arr, left, right) {
     merge(arr, left, mid, right); // 정렬된 2개의 배열을 하나로 병합
   }
 }
+
 
 let sorted = Array.from({ length: arr.length }, () => 0); // 임시 정렬 배열 정의
 mergeSort(arr, 0, arr.length - 1);
