@@ -5,7 +5,7 @@ n, m = map(int, input().split())
 
 dic = {}
 for _ in range(n):
-    song = list(input().split())
+    song = input().split()
     dic[song[1]] = ''.join(song[2:5])
 
 for _ in range(m):
@@ -14,6 +14,9 @@ for _ in range(m):
     title = ''
     cnt = 0
     for k, v in dic.items():
+        if cnt >= 2:
+            break
+            
         if sound == v:
             cnt += 1
             title = k

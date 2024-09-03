@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 31120 KB, 시간: 120 ms
+메모리: 31120 KB, 시간: 104 ms
 
 ### 분류
 
@@ -12,13 +12,13 @@
 
 ### 제출 일자
 
-2024년 9월 4일 01:12:47
+2024년 9월 4일 01:14:59
 
 ### 문제 설명
 
 <p>윤수와 정환은 「전주 듣고 노래 맞히기」라는 게임을 할 예정이다. 「전주 듣고 노래 맞히기」는 주어진 노래의 전주를 듣고 먼저 제목을 맞히는 사람이 점수를 얻어 최종적으로 점수가 더 많은 사람이 이기는 게임이다. 절대 음감을 가진 윤수는 노래의 첫 네 음만 듣고도 어떤 노래든 바로 맞힐 수 있다. 따라서, 정환은 윤수를 이기기 위해 첫 세 음만으로 노래를 맞히게 해주는 프로그램을 만들려고 한다. 우선 정환이 알고 있는 노래 제목, 음이름 등을 데이터로 만든 뒤 프로그램을 구현하기 시작했다. 예를 들어, 다음은 <span style="color:#e74c3c;"><code>TwinkleStar</code></span>(반짝반짝 작은 별)의 악보 중 일부이다.</p>
 
-<p style="text-align: center;"><code><img alt="" src="https://upload.acmicpc.net/42349570-4719-4239-968b-f1704537e702/-/preview/" style="height: 137px; width: 594px;"></code></p>
+<p style="text-align: center;"><code><img alt="" src="" style="height: 137px; width: 594px;"></code></p>
 
 <p>위 악보를 박자와 관계없이 음이름으로 표현하면 <span style="color:#e74c3c;"><code>CCGGAAG</code></span>가 된다.</p>
 
