@@ -1,3 +1,7 @@
+import sys
+input = sys.stdin.readline
+
+
 def count(r, c):
     total = 0
     for i in [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]:
