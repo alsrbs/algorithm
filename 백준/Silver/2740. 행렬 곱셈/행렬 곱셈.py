@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 n1, m1 = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n1)]
 n2, m2 = map(int, input().split())
