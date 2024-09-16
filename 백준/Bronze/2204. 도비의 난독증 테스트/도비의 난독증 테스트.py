@@ -1,15 +1,9 @@
+import sys
+input = sys.stdin.readline
+
 while True:
- 
     n = int(input())
- 
     if n == 0:
         break
- 
-    arr = []
- 
-    for _ in range(n):
-        word = input()
-        arr.append(word)
- 
-    arr.sort(key=str.lower)
-    print(arr[0])
+    words = [input().strip() for _ in range(n)]
+    print(sorted(words, key=str.lower)[0])
