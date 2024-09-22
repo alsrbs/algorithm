@@ -4,7 +4,7 @@ const input = fs.readFileSync("/dev/stdin").toString().split("\n");
 const n = Number(input[0]);
 const arr = input[1].split(" ").map(Number);
 
-let flot = Array(1000001).fill(0);
+let flot = Array(Math.max(...arr) + 1).fill(0); 
 
 for (let i = 0; i < n; i++) {
     if (flot[arr[i]] > 0) {
@@ -15,6 +15,9 @@ for (let i = 0; i < n; i++) {
     }
 }
 
-const sumFlot = flot.reduce((acc, cur) => acc + cur, 0);
+let totalOperations = 0;
+for (let i = 0; i < flot.length; i++) {
+    totalOperations += flot[i];
+}
 
-console.log(sumFlot);
+console.log(totalOperations);
