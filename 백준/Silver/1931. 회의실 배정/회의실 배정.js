@@ -7,8 +7,10 @@ const arr = [];
 for (let i = 1; i <= n; i++) arr.push(input[i].split(" ").map(Number));
 
 // 종료 시간 기준으로 정렬
-arr.sort();
-arr.sort((a, b) => a[1] - b[1]);
+arr.sort((a, b) => {
+    if (a[1] != b[1]) return a[1] - b[1];
+    else return a[0] - b[0];
+});
 
 let cur = 0, result = 1;
 
