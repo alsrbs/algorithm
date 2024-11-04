@@ -6,9 +6,8 @@ for k in range(1, n + 1):
         break
 
     # a가 자연수인지 확인
-    if (n - (k * (k - 1)) // 2) % k == 0:
-        a = (n - (k * (k - 1)) // 2) // k
-        if a > 0:
-            answer += 1
+    x = (n - (k * (k - 1)) // 2)
+    if x % k == 0:
+        answer += 1
 
 print(answer)
