@@ -1,4 +1,7 @@
 from collections import deque
+import sys
+
+input = sys.stdin.readline
 
 n, m = map(int, input().split())  # n 체스판의 크기 m 상대편 말의 수
 x, y = map(int, input().split())  # 나이트의 위치
